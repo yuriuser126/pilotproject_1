@@ -1,0 +1,16 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- * 추상클래스 로그인 서비스 sql -->
+<!-- * 25/04/08 성유리 로그인 dao.xml  -->
+
+<mapper namespace="com.lgy.ShoFriend.dao.LogDAO">
+
+
+    <select id="login" resultType="com.lgy.ShoFriend.dto.LogDTO">
+        select email from customer where password=#{password}
+    </select>
+        
+</mapper>
