@@ -1,0 +1,29 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- * 추상클래스 로그인 서비스 sql -->
+<!-- * 25/04/08 성유리 로그인 dao.xml  -->
+
+<mapper namespace="com.lgy.ShoFriend.dao.LogDAO">
+
+<!-- * 25/04/10 성유리 쿼리문 수정  where email=#{email} -->
+    <select id="loginYn" resultType="com.lgy.ShoFriend.dto.CustomerDTO">
+        select id, name, email, password, phone, address, created_at
+        from customer 
+        where email=#{email} and password=#{password} 
+    </select>
+    
+      <select id="loginYns" resultType="com.lgy.ShoFriend.dto.SellerDTO">
+       select id, name, email, password, phone, created_at
+       from seller 
+       where email=#{email} and password=#{password} 
+   </select>
+    
+      <insert id="searchId">
+<!--     	insert into tbl_board(boardName, boardTitle, boardContent) values(#{param1},#{param2},#{param3}) -->
+    	insert into customer(email) values(#{email})
+    </insert>
+        
+</mapper>
